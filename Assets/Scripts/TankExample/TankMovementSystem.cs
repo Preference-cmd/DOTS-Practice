@@ -15,7 +15,10 @@ public partial struct TankMovementSystem : ISystem
         // we access the localtransform and entity id
         // then update the LocalTransform to move the tank along a random curve
         foreach(var (localtransform, entity) in 
-            SystemAPI.Query<RefRW<LocalTransform>>().WithAll<Tank>().WithEntityAccess()
+            SystemAPI.Query<RefRW<LocalTransform>>()
+                .WithAll<Tank>()
+                .WithEntityAccess()
+                .WithNone<Player>()
         )
         {
             var pos = localtransform.ValueRO.Position;
