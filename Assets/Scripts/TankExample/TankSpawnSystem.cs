@@ -20,7 +20,7 @@ public partial struct TankSpawnSystem : ISystem
         // Disable the system in the first update means that the system will only update once
         state.Enabled = false;
 
-        int callCount = 0;
+        // int callCount = 0;
 
         // Get the config
         var config = SystemAPI.GetSingleton<Config>();
@@ -55,9 +55,9 @@ public partial struct TankSpawnSystem : ISystem
                     state.EntityManager.SetComponentData(entity.Value, color);
                 }
 
-                callCount++;
+                // callCount++;
 
-                Debug.Log("Call count: " + callCount + " in tank instantiation: " + i );
+                // Debug.Log("Call count: " + callCount + " in tank instantiation: " + i );
             }
         }
     }
